@@ -1,0 +1,40 @@
+{
+  "name": "pw-appium",
+  "version": "1.0.0",
+  "description": "Playwright + Appium mobile browser automation with Allure reporting",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:android": "npx playwright test --project=android-chrome",
+    "test:allure": "npx playwright test --reporter=line,allure-playwright",
+    "test:mobile": "cross-env RUN_APPIUM=true npx playwright test --project=android-chrome",
+    "report:allure": "npx allure generate ./allure-results --clean -o ./allure-report && npx allure open ./allure-report",
+    "appium:start": "npx appium --port 4723 --allow-cors",
+    "appium:doctor": "npx appium-doctor --android"
+  },
+  "keywords": [
+    "playwright",
+    "appium",
+    "mobile",
+    "automation",
+    "allure"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "allowScripts": {
+    "appium-uiautomator2-driver": true
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.0",
+    "@types/node": "^22.10.2",
+    "allure-commandline": "^2.33.0",
+    "allure-playwright": "^3.13.0",
+    "appium": "^3.4.2",
+    "appium-doctor": "^1.1.0",
+    "appium-uiautomator2-driver": "^8.7.0",
+    "cross-env": "^7.0.0"
+  }
+  
+}
